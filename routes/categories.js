@@ -41,7 +41,7 @@ router.post("/", verifyToken, upload.single("image"), async (req, res) => {
       return res.status(400).json({ message: "Image is required" })
     }
 
-    const imageUrl = `http://localhost:5000/uploads/${req.file.filename}`
+    const imageUrl = `https://revisit-backend-jr8w.onrender.com/uploads/${req.file.filename}`
 
     const category = new Category({
       name,
@@ -75,7 +75,7 @@ router.put("/:id", verifyToken, upload.single("image"), async (req, res) => {
 
     // Update image if provided
     if (req.file) {
-      category.imageUrl = `http://localhost:5000/uploads/${req.file.filename}`
+      category.imageUrl = `https://revisit-backend-jr8w.onrender.com/uploads/${req.file.filename}`
     }
 
     await category.save()
